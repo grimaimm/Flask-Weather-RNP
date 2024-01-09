@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Web Apps | Graimaim</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+  <style></style>
+</head>
+<body class="{{ time_of_day }}">
+  <!-- Navbar Start -->
+  <!-- Navbar End -->
+
+  <!-- Search Bar Start -->
+  <div class="searchBar content-section" id="searchBar">
+    <div class="container">
+      <div class="title-project">
+        <h1><i class="fa-solid fa-cloud-bolt"></i> Flask Weather</h1>
+      </div>
+      <!-- Form Input Start -->
+        <form action="/predict" method="POST">
+          <div class="form-input">
+            <div class="input-logo">
+              <i class="fa-solid fa-city"></i>
+            </div>
+            <div class="input-feald">
+              <input class="search-bar" type="text" name="city" placeholder="Type a city like (Yogyakarta)....">
+            </div>
+            <div class="input-button">
+              <button type="submit" class="search-button" title="Search Location"><i class="fa-solid fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      <!-- Form Input End -->
+      <hr>
+      <!-- Content Start -->
+      <div class="content-widget">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="px-1">{{ city }}, {{ region }}, {{ country }}</span>
+          </div>
+          <div class="card-body card-body-top">
+          <div class="kiri">
+            <div class="satu">
+              <div class="weather-icon">
+                <img src="{{ icon_url }}" alt="Weather Icon">
+              </div>
+              <div class="suhu">
+                <h1>{{ temperature|round|int }}°C</h1>
+              </div>
+            </div>
+            <div class="dua py-3">
+              <div class="hu-wi-pr">
+                <span class="title">Precipitation:</span> <span class="icon"><i class="fa-solid fa-umbrella"></i></span> <span class="res">{{ precip_mm }} mm</span>
+                <span class="vertical-line"></span>
+                <span class="title">Wind Speed:</span> <span class="icon"><i class="fa-solid fa-wind"></i></span> <span class="res">{{ wind_speed }} KpH</span>
+                <span class="vertical-line"></span>
+                <span class="title">Humadity:</span> <span class="icon"><i class="fa-solid fa-droplet"></i></span> <span class="res">{{ humidity }}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="kanan">
+            <div class="cu-de-da-ti">
+              <span class="current">Current Location</span>
+              <span class="desk">{{ description }}</span>
+              <span class="day">{{ current_day }}</span>
+              <span class="time">{{ current_time }}</span>
+            </div>
+          </div>
+          </div>
+          <div class="card-body card-body-bottom">
+            {% for day in weekly_forecast[:6] %}
+            <div class="card-forecast">
+              <div class="title-forecast">
+                <span>{{ day.formatted_date }}</span>
+              </div>
+              <div class="image-forecast">
+                <img src="{{ day.day.condition.icon }}" alt="{{ day.day.condition.text }}">
+              </div>
+              <div class="temp-forecast">
+                <span>{{ day.day.mintemp_c|round|int }}°C / {{ day.day.avgtemp_c|round|int }}°C</span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- Content End -->
+    </div>
+  </div>
+  <!-- Search Bar End -->
+
+
+
+  <!-- JS Start -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- JS End -->
+</body>
+</html>

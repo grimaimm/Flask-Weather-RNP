@@ -1,0 +1,410 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* static/style.css */
+body.morning {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.500), rgba(0, 0, 0, 0.500)), url('/static/Day.jpg');
+  background-color: rgba(0, 0, 0, 1);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body.afternoon {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.500), rgba(0, 0, 0, 0.500)), url('/static/Day.jpg');
+  background-color: rgba(0, 0, 0, 1);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body.evening {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.500), rgba(0, 0, 0, 0.500)), url('/static/Night.jpg');
+  background-color: rgba(0, 0, 0, 1);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body.night {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.500), rgba(0, 0, 0, 0.500)), url('/static/Night.jpg');
+  background-color: rgba(0, 0, 0, 1);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+body.error {
+  background-color: rgba(0, 0, 0, 1);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+::before,
+::after {
+  box-sizing: border-box;
+  text-rendering: optimizelegibility;
+  text-shadow: rgba(0, 0, 0, 0.01) 0px 0px 1px;
+}
+
+
+/* ===================================================================== */
+/* > // STYLE ALL HALAMAN */
+/* ===================================================================== */
+.title-project h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  color: #d9d9d9;
+  text-shadow:  1px 1px #919191,
+                1px 2px 1px #919191,
+                1px 3px 1px #919191,
+                1px 4px 1px rgba(16,16,16,0.8);
+}
+.searchBar {
+  min-width: 0px;
+  padding-top: 62px;
+  padding-bottom: 62px;
+  /* display: flex; */
+  overflow: hidden;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  backface-visibility: hidden;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+/* ----- Container----- */
+.searchBar .container {
+  min-width: 0px;
+  /* display: flex; */
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 65%;
+}
+
+/* ----- Media Screen (Responsive) ----- */
+@media screen and (min-width: 768px) {
+  .searchBar {
+    min-height: 100vh;
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .searchBar {
+    padding-top: 28px;
+    padding-bottom: 38px;
+  }
+  .searchBar .container {
+    width: 100%;
+  }
+}
+
+
+/* ===================================================================== */
+/* > // STYLE SEARCH BOX */
+/* ===================================================================== */
+/* ----- Form ----- */
+.searchBar form {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #d9d9d9;
+  padding: 10px;
+  border-radius: 0.50rem;
+}
+
+.form-input {
+  display: flex;
+  gap: 5px;
+}
+/* Form Logo */
+.form-input .input-logo {
+  font-size: 22px;
+  padding-block-start: 2px;
+  padding-block-end: 2px;
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+  inset: 0;
+}
+/* Form Input */
+.form-input .input-feald {
+  width: 100%;
+}
+.form-input .input-feald .search-bar {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  color: #d9d9d9;
+}
+.form-input .input-feald .search-bar::placeholder {
+  color: #d9d9d966;
+}
+/* Form Button */
+.form-input .input-button .search-button {
+  width: 100%;
+  height: 100%;
+  padding-block-start: 4px;
+  padding-block-end: 4px;
+  padding-inline-start: 9px;
+  padding-inline-end: 9px;
+  border-radius: 0.40rem;
+  font-size: 20px;
+  border: none;
+}
+
+/* ----- Media Screen (Responsive) ----- */
+@media (max-width: 768px) {
+  .form-input .input-logo {
+    font-size: 20px;
+  }
+  .form-input .input-feald .search-bar {
+    font-size: 18px;
+  }
+  .form-input .input-button .search-button {
+    font-size: 18px;
+  }
+}
+/* ===================================================================== */
+/* > // STYLE CONTENT WIDGET */
+/* ===================================================================== */
+/* ----- Content Widget ----- */
+.content-widget {
+  border: none;
+}
+
+.button-back {
+  display: flex;
+}
+.button-back .button {
+  font-size: 18px;
+  text-decoration: none;
+  background-color: transparent;
+  color: #000;
+  border-radius: 0.50rem;
+}
+
+.search-result {
+  padding: 5px 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #d9d9d9;
+}
+
+hr {
+  color: #d9d9d9;
+  border: 1px solid;
+  border-radius: 50px;
+}
+
+/* Card */
+.content-widget .card {
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #d9d9d9;
+}
+
+/* Card Header */
+.content-widget .card-header {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ----- Card Body Top ----- */
+.card-body-top {
+  display: flex;
+  padding: 10px 22px;
+}
+/* ----- Card Body Top (Kiri) ----- */
+.card-body-top .kiri {
+  width: 60%;
+}
+/* ----- Card Body Top (Kanan) ----- */
+.card-body-top .kanan {
+  width: 40%;
+}
+
+/* ----- Card Body Top (Kiri > Satu) ----- */
+.card-body-top .kiri .satu {
+  display: flex;
+  gap: 8px;
+}
+/* ----- Card Body Top (Kiri > Satu > Weather Icon) ----- */
+.card-body-top .kiri .satu .weather-icon {
+  display: flex;
+  align-items: center;
+}
+.card-body-top .kiri .satu .weather-icon img {
+  width: 120px;
+  width: 110px;
+}
+/* ----- Card Body Top (Kiri > Satu > Suhu) ----- */
+.card-body-top .kiri .satu .suhu {
+  display: flex;
+  align-items: center;
+}
+.card-body-top .kiri .satu .suhu h1 {
+  font-size: 84px;
+  font-weight: 700;
+  letter-spacing: -0.2rem;
+  line-height: 1.3;
+  padding: 0;
+  margin: 0;
+}
+
+/* ----- Card Body Top (Kiri > Dua) ----- */
+.card-body-top .kiri .dua {
+  display: flex;
+  font-weight: 600;
+}
+.card-body-top .kiri .dua .icon {
+  display: none;
+}
+.card-body-top .kiri .dua .vertical-line {
+  border: 1px solid;
+  margin: 0 10px 0 8px;
+  border-radius: 50px;
+}
+
+/* ----- Card Body Top (Kanan > cu-de-da-ti) ----- */
+.card-body-top .kanan .cu-de-da-ti {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+}
+/* ----- Card Body Top (Kanan > cu-de-da-ti > cu) ----- */
+.card-body-top .kanan .cu-de-da-ti .current {
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+}
+.card-body-top .kanan .cu-de-da-ti .desk {
+  font-size: 22px;
+  font-weight: 700;
+}
+.card-body-top .kanan .cu-de-da-ti .day {
+  font-size: 22px;
+  font-weight: 600;
+}
+.card-body-top .kanan .cu-de-da-ti .time {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .card-body-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body-top .kiri {
+    width: 100%;
+  }
+  .card-body-top .kanan {
+    width: 100%;
+  }
+  .card-body-top .kiri .satu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card-body-top .kiri .dua {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card-body-top .kiri .dua .title {
+    display: none;
+  }
+  .card-body-top .kiri .dua .icon {
+    display: inline;
+  }
+  .card-body-top .kanan .cu-de-da-ti {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+/* ----- Card Body Bottom ----- */
+.card-body-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 17px;
+}
+
+/* ----- Card Body Bottom (bottom-item) ----- */
+.card-forecast {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 150px;
+  border-radius: 1rem;
+  gap: 5px;
+  transform: scale(1);
+  transition: transform .3s;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.card-forecast:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .card-body-bottom {
+    display:flex;
+    flex-wrap: wrap;
+  }
+  .card-forecast {
+    width: 105px;
+  }
+}
+
+
+.card-forecast .title-forecast {
+  font-weight: 600;
+}
+.card-forecast .temp-forecast {
+  font-weight: 600;
+}
